@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  #app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .v-application__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .FormContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
