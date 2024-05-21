@@ -42,7 +42,6 @@ export const useStatusAppStore = defineStore('statusAppStore', () => {
     deleteLocaleCookies();
     Cookies.set('locale', locale.value, { path: '/' });
     console.log('Locale:', locale.value);
-    
   }
 
   return {

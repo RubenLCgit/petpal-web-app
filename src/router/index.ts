@@ -95,7 +95,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'dashboard' && !localStorage.getItem('token')) {
+  if (
+    (to.name === 'dashboard' ||
+      to.name === 'dashboardProducts' ||
+      to.name === 'dashboardServices' ||
+      to.name === 'detailsUser') &&
+    !localStorage.getItem('token')
+  ) {
     next({ name: 'login' })
   } else {
     next()
@@ -103,10 +109,15 @@ router.beforeEach((to, from, next) => {
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'admin' && (!localStorage.getItem('token') || localStorage.getItem('role') !== 'Admin')) {
+  if (
+    (to.name === 'admin' ||
+      to.name === 'adminUsers' ||
+      to.name === 'adminProducts' ||
+      to.name === 'adminServices') &&
+    (!localStorage.getItem('token') || localStorage.getItem('role') !== 'Admin')
+  ) {
     next({ name: 'login' })
-  }
-  else {
+  } else {
     next()
   }
 });

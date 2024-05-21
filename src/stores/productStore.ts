@@ -14,17 +14,14 @@ export const useProductStore = defineStore('productStore', () => {
   const { jwtToken, userId } = storeToRefs(auth);
 
   const getProducts = async () => {
-    if (products.value.length > 0) {
-      return
-    }
-    const res = await fetch('https://localhost:7207/Product')
+    const res = await fetch('http://localhost:7216/Product')
     const data = await res.json()
     products.value = data;
     numberOfProducts.value = data.length;
   }
 
   const getProductsUser = async () => {
-    const res = await fetch('https://localhost:7207/Product')
+    const res = await fetch('http://localhost:7216/Product')
     const data = await res.json()
     if (data) {
       productsUser.value = data.filter((product: Product) => product.userId.toString() === userId.value);
@@ -32,7 +29,7 @@ export const useProductStore = defineStore('productStore', () => {
   }
 
   const getProduct = async (idProduct: string) => {
-    const res = await fetch(`https://localhost:7207/Product/${idProduct}`);
+    const res = await fetch(`http://localhost:7216/Product/${idProduct}`)
     const data = await res.json();
     product.value = data;
   }
@@ -40,7 +37,7 @@ export const useProductStore = defineStore('productStore', () => {
   const modifyProduct = async (idProduct: string, product: ProductUpdate) => {
     const indexProduct = products.value.findIndex((prod: Product) => prod.productId.toString() === idProduct);
     const indexProductUser = productsUser.value.findIndex((prod: Product) => prod.productId.toString() === idProduct);
-    await fetch(`https://localhost:7207/Product/${idProduct}`, {
+    await fetch(`http://localhost:7216/Product/${idProduct}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -57,7 +54,7 @@ export const useProductStore = defineStore('productStore', () => {
   }
 
   const deleteProduct = async (idProduct: string) => {
-    await fetch(`https://localhost:7207/Product/${idProduct}`, {
+    await fetch(`http://localhost:7216/Product/${idProduct}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +79,8 @@ export const useProductStore = defineStore('productStore', () => {
       productAvailability: product.productAvailability,
       productOnline: productUpdate.productOnline,
       productStock: productUpdate.productStock,
-      productRating: product.productRating
+      productRating: product.productRating,
+      userEmail: product.userEmail
     }
   }
 

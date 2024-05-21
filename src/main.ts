@@ -10,7 +10,7 @@ import es from './locale/es.json'
 import router from './router'
 
 // Vuetify
-import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'

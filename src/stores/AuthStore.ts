@@ -30,7 +30,7 @@ export const useAuthUser = defineStore('authStore', () => {
     emailError.value = false
     registrationSuccess.value = false
     try {
-      const response = await fetch('https://localhost:7207/User', {
+      const response = await fetch('http://localhost:7216/User', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ export const useAuthUser = defineStore('authStore', () => {
     accountError.value = false;
     loginSuccess.value = false;
     try {
-      const response = await fetch('https://localhost:7207/Auth/login', {
+      const response = await fetch('http://localhost:7216/Auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

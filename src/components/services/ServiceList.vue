@@ -33,6 +33,7 @@ const getServicesUser = async () => {
 getServicesUser();
 
 const { initElement, endElement, nextElement, previusElement } = usePagination();
+
 </script>
 
 <template>

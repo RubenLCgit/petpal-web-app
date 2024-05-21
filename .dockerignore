@@ -1,0 +1,27 @@
+# Ignore directories and files related to Git
+.git
+.gitignore
+
+# Ignore directories and files of text editors
+.swp
+.swo
+.vscode/
+.idea/
+*.log
+
+# Ignore configuration files system
+*.DS_Store
+Thumbs.db
+
+#Ignore depencies and build compilation files
+node_modules/
+dist/
+coverage/
+temp/
+
+# Ignore development files
+npm-debug.log
+yarn-error.log
+
+# Ignore this file
+.dockerignore

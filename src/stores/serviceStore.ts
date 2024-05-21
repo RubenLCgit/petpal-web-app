@@ -12,14 +12,14 @@ export const useServiceStore = defineStore('serviceStore', () => {
     if (services.value.length > 0) {
       return
     }
-    const res = await fetch('https://localhost:7207/Service')
+    const res = await fetch('http://localhost:7216/Service')
     const data = await res.json()
     services.value = data
     numberOfServices.value = data.length
   }
 
   const getService = async (idService: string) => {
-    const res = await fetch(`https://localhost:7207/Service/${idService}`)
+    const res = await fetch(`http://localhost:7216/Service/${idService}`)
     const data = await res.json()
     service.value = data
   }
